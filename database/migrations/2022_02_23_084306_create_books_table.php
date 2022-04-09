@@ -19,11 +19,10 @@ return new class extends Migration
             
             // $table->integer("integer_column");
             // $table->text("big_text")->nullable();
-            
-            //$table->string("genres");
             $table->string("publisher");
             //naudoti author_id (int) jei kuriamas separate table
             //$table->integer("author_id");
+            $table->string("category");
             $table->string("author");
             //$table->dateTime("publ_date");
             $table->timestamps();

@@ -2,39 +2,20 @@
 
 @section("content")
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Library Management System</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
-<h3>Do you want to remove this book?</h3>
+<div class="container">
 
+<h3 class="mt-3 mb-3">Do you want to remove this book?</h3>
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">{{$book->title}}</h5>
-        <p class="card-text">{{$book->publisher}}</p>
-        <p class="card-text">{{$book->author}}</p>
+        <h5 class="card-title">Title: {{$book->title}}</h5>
+        <p class="card-text">Publisher: {{$book->publisher}}</p>
+        <p class="card-text">Author: {{$book->author}}</p>
+        <p class="card-text">Category: {{$book->category}}</p>
         <a href="/books" class="btn btn-danger">No</a>
         <a href="/books/remove/{{$book->id}}" class="btn btn-primary">Yes</a>
     </div>
+</div>
 </div>
 
 @endsection

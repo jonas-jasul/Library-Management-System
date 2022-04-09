@@ -1,12 +1,12 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <h2 id="loginTitle">Library Management System </h2>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" x-data="{role_id: 2}"> 
             @csrf
 
             <div>
@@ -18,6 +18,30 @@
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
+
+             <div class="mt-4">
+                <x-jet-label for="role_id" value="{{ __('Register as: ') }}" />
+                <select name="role_id" x-model="role_id" class="block mt-1 w-full">
+                    <option value="2">User</option>
+                    <option value="3">Admin</option>
+                </select>
+            </div>
+
+             <div class="mt-4" x-show="role_id == 2">
+                <x-jet-label for="member_school" value="{{ __('School') }}" />
+                <x-jet-input id="member_school" class="block mt-1 w-full" type="text" name="member_school" :value="old('member_school')" />
+            </div>
+
+            <div class="mt-4" x-show="role_id == 2">
+                <x-jet-label for="member_phone_num" value="{{ __('Phone Number') }}" />
+                <x-jet-input id="member_phone_num" class="block mt-1 w-full" type="text" name="member_phone_num" :value="old('member_phone_num')" />
+            </div>
+
+            <div class="mt-4" x-show="role_id == 3">
+                <x-jet-label for="qualification" value="{{ __('Qualification') }}" />
+                <x-jet-input id="qualification" class="block mt-1 w-full" type="text" name="qualification" :value="old('qualification')" />
+            </div>
+            
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />

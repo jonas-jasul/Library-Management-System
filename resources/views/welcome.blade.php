@@ -61,6 +61,11 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #enterLink {
+                font-size:30px;
+                background-color:cyan;
+            }
         </style>
     </head>
     <body>
@@ -68,7 +73,7 @@
 
             @if (Route::has('login') && Auth::check())
                 <div class="top-right links">
-                    <a href="{{ url('/home') }}">Dashboard</a>
+                    <a href="{{ url('/dashboard') }}">Dashboard</a>
                 </div>
             @elseif (Route::has('login') && !Auth::check())
                 <div class="top-right links">
@@ -83,8 +88,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/books/add">Add a book</a>
-                    <a href="/books">View books</a>
+                    <a href="/books" id="enterLink">Enter</a>
                 </div>
             </div>
         </div>

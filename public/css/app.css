@@ -70,15 +70,6 @@ abbr:where([title]) {
 Remove the default font size and weight for headings.
 */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
 
 /*
 Reset links to optimize for opt-in styling instead of opt-out.
@@ -2165,3 +2156,64 @@ select {
   }
 }
 
+button {
+  color:black;
+  border: 1px solid black !important;
+}
+
+.bg-brown {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 190 135 / var(--tw-bg-opacity));
+}
+
+#loginTitle {
+  font-size:25px;
+}
+
+.add_btn {
+  background-color: red;
+  font-size: 18px;
+}
+
+.add_btn:hover {
+  text-decoration: none;
+  color:white;
+  outline: 2px solid white;
+}
+.card-body-dash{
+  padding: 60px 40px;
+  background: #0083a0;
+}
+
+.card-body-dash .card-text{
+  color: #fff;
+  font-size: 70px;
+  line-height: 50px;
+  font-weight: 20;
+  margin: 0 0 10px;
+}
+.card-body-dash .card-title{
+  color: #fff;
+}
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+} */
+
+h5 {
+  font-size: inherit;
+}
+
+.card-dash {
+  width: 14rem; 
+  margin: 0 auto;
+}
+
+.edit_btn {
+  background-color: greenyellow;
+}

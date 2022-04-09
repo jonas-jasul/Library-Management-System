@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
+use App\Models\Category;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class BooksController extends Controller
 {
@@ -20,7 +24,10 @@ class BooksController extends Controller
     }
 
     public function addBooks() {
-        return view("addBooks");
+        $publishers=Publisher::all();
+        $authors= Author::all();
+        $categories = Category::all();
+        return view("addBooks", compact("publishers", "authors", "categories"));
     }
 
     public function store (Request $request) {
@@ -28,12 +35,14 @@ class BooksController extends Controller
         $validated = $request->validate([
             "title" => "required|max:255",
             "publisher" => "required|max:255",
+            "category"=>"required",
             "author" => "required|max:255"
         ]);
 
         Book::create([
             "title" => request("title"),
             "publisher" => request("publisher"),
+            "category" =>request("category"),
             "author" => request("author")
 
         ]);
@@ -49,6 +58,7 @@ class BooksController extends Controller
         $validated = $request->validate([
             'title' => "required|max:255",
             'publisher'=>"required|max:255",
+            'category' =>"required",
             'author'=>"required|max:255"
 
         ]);
@@ -57,6 +67,7 @@ class BooksController extends Controller
 
         $book->title=request("title");
         $book->publisher=request("publisher");
+        $book->category=request("category");
         $book->author=request("author");
 
         $book->save();
@@ -76,5 +87,11 @@ class BooksController extends Controller
         $book->delete();
 
         return redirect("/books");
+    }
+
+    public function search() {
+        $results = Book::where('title', 'LIKE', '%'.$_GET['query'].'%')->get();
+
+        return dd($_GET['query']);
     }
 }
