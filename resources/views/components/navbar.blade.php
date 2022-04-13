@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                @if(Auth::user()->role_id==3)
+                @if(Auth::user()->role_id==2)
                     <li class="nav-item">
                     <a class="nav-link" href="/books">View Books</a>
                 </li>
@@ -35,7 +35,7 @@
                     </ul>
                 </li>
                 @endif
-                @if(Auth::user()->role_id==2)
+                @if(Auth::user()->role_id==3)
                 {{-- 
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/books/add">Add Books</a>
@@ -60,6 +60,10 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="/books">Books</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/issueBook/">Issue Books</a>
                 </li>
 
                  <li class="nav-item">

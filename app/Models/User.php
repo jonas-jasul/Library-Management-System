@@ -18,6 +18,16 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'id');
+    }
+
+    public function issues() {
+        return $this->hasMany(Book_issue::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -6,6 +6,7 @@ use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\BookIssueController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PublishersController;
@@ -45,9 +46,17 @@ Route::get("/authors/add", function() {
     return view("addAuthor");
 });
 
+Route::get("/issueBook/add", function() {
+    return view("issueBook");
+});
+
 Route::get("/books", [BooksController::class, "index"]);
 Route::get("/books/add", [BooksController::class, "addBooks"]);
 Route::post("/books/add", [BooksController::class, "store"]);
+
+Route::get("/issueBook/", [BookIssueController::class, "index"]);
+Route::get("/issueBook/add", [BookIssueController::class, "addIssue"]);
+Route::post("/issueBook/add", [BookIssueController::class, "store"]);
 
 Route::get("/publishers", [PublishersController::class, "index"]);
 Route::post("/addAuthor", [AuthorsController::class, "storeAuthor"]);

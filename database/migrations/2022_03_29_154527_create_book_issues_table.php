@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('book_issues', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('book_id')->constrained();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('book_id')->constrained('books');
             $table->timestamp('issue_date');
             $table->timestamp('return_date')->nullable();
-            $table->string('issue_status');
+            $table->string('status')->nullable();
             $table->timestamp('return_day')->nullable();
             $table->timestamps();
         });

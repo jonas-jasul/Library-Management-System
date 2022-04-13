@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            
+            $table->string("title");            
             // $table->integer("integer_column");
             // $table->text("big_text")->nullable();
-            $table->string("publisher");
+            $table->string("publisher")->onDelete('cascade');
             //naudoti author_id (int) jei kuriamas separate table
             //$table->integer("author_id");
             $table->string("category");
-            $table->string("author");
+            $table->string("author")->onDelete('cascade');
+            $table->string('status')->default('Y');
             //$table->dateTime("publ_date");
             $table->timestamps();
         });

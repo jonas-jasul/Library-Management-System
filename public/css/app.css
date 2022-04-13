@@ -2217,3 +2217,17 @@ h5 {
 .edit_btn {
   background-color: greenyellow;
 }
+
+.thumbnail-photo {
+  
+}
+.navbar-brand{
+  font-size: 22px;
+}
+.nav-link {
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+} 

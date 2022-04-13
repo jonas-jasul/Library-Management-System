@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
 
-    public function viewMembers() {
-        $users=User::all();
+    public function viewMembers()
+    {
+        $users = User::all();
         return view("viewMembers", compact("users"));
     }
 
+    
 }

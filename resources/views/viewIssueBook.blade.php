@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <a href="/books/add" class="float-right mt-3 pt-2 pb-2 pl-2 pr-2 add_btn" role="button">Add books</a>
+            <a href="/issueBook/add" class="float-right mt-3 pt-2 pb-2 pl-2 pr-2 add_btn" role="button">Issue Book</a>
         </div>
     </div>
 </div>
@@ -17,18 +17,21 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3 class="mt-0 mb-3 text-center head-title">Books</h3>
+            <h3 class="mt-0 mb-3 text-center head-title">Book Issues</h3>
         </div>
     </div>
     <div class="row">
         <table class="table table-light table-striped table-bordered">
             <thead>
-                <tr class="table-primary">
+                <tr class="table-info">
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Author</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">User Phone Number</th>
+                    <th scope="col">User Email</th>
+                    <th scope="col">Issue Date</th>
+                    <th scope="col">Returning Date</th>
+                    <th scope="col">Status</th>
                     @if(Auth::user()->role_id==3)
                     <th scope="col">Action</th>
                     @endif
@@ -38,12 +41,15 @@
                 @foreach ($books as $book)
                 <tr>
                     <th scope="row">{{$book->id}}</th>
-                    <td>{{$book->title}}</td>
-                    <td>{{ $book->publisher}}</td>
-                    <td>{{$book->category}}</td>
-                    <td>{{Str::limit($book->author, 20)}}</td>
+                    <td>{{$book->user->name}}</td>
+                    <td>{{$book->book->title}}</td>
+                    <td>{{$book->user->member_phone_num}}</td>
+                    <td>{{$book->user->email}}</td>
+                    <td>{{$book->issue_date}}</td>
+                    <td>{{$book->return_date}}</td>
+                    <td>{{$book->status}}</td>
                     {{-- <td>{{str_repeat("*", $book->rating)}}</td> --}}
-                    @if(Auth::user()->role_id==3)
+                    @if(Auth::user()->role_id==2)
                     <td>
                         <a class="no-underline" href="/books/edit/{{ $book->id }}">edit</a>
                         /
