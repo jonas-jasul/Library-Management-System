@@ -72,16 +72,16 @@
     </style>
 </head>
 <body>
-    <div class="flex-center position-ref full-height">
+    <div class="flex-center position-relative full-height">
 
         @if (Route::has('login') && Auth::check())
         <div class="top-right links">
-            <a href="{{ url('/dashboard') }}">Dashboard</a>
+            <a class="pt-2 pb-2" href="{{ url('/dashboard') }}">Dashboard</a>
         </div>
         @elseif (Route::has('login') && !Auth::check())
         <div class="top-right links">
-            <a href="{{ url('/login') }}">Login</a>
-            <a href="{{ url('/register') }}">Register</a>
+            <a class="pt-2 pb-2" href="{{ url('/login') }}">Login</a>
+            <a class="pt-2 pb-2" href="{{ url('/register') }}">Register</a>
         </div>
         @endif
 

@@ -16,11 +16,19 @@
 @endif
 <div class="container">
     <div class="row">
+        <form action="/search" method="POST" role="search">
+            {{ csrf_field() }}
+            <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="Enter search query">
+                <button type="submit" id="filter_btn" class="btn btn-primary ml-2">Filter</button>
+            </div>
+        </form>
         <div class="col-12">
+
             <h3 class="mt-0 mb-3 text-center head-title">Books</h3>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="overflow:auto">
         <table class="table table-light table-striped table-bordered">
             <thead>
                 <tr class="table-primary">
@@ -39,15 +47,15 @@
                 <tr>
                     <th scope="row">{{$book->id}}</th>
                     <td>{{$book->title}}</td>
-                    <td>{{ $book->publisher}}</td>
-                    <td>{{$book->category}}</td>
-                    <td>{{Str::limit($book->author, 20)}}</td>
+                    <td>{{$book->publisher->publisherName}}</td>
+                    <td>{{$book->category->categoryName}}</td>
+                    <td>{{$book->author->name}}</td>
                     {{-- <td>{{str_repeat("*", $book->rating)}}</td> --}}
                     @if(Auth::user()->role_id==3)
-                    <td>
-                        <a class="no-underline" href="/books/edit/{{ $book->id }}">edit</a>
+                    <td class="text-nowrap">
+                        <a class="no-underline btn btn-primary btn-sm" href="/books/edit/{{ $book->id }}">edit</a>
                         /
-                        <a class="no-underline" href="/books/remove/ask/{{ $book->id }}">remove</a>
+                        <a class="no-underline btn btn-danger btn-sm" href="/books/remove/ask/{{ $book->id }}">remove</a>
                     </td>
                     @endif
                 </tr>
@@ -59,8 +67,9 @@
 @endauth
 
 @guest
-<h1 class="mt-3 ml-3">You are logged out. Please log in.</h1>
-
+<div class="pt-5 d-flex justify-content-center align-items-center">
+    <h1>You are logged out. Please log in.</h1>
+</div>
 @endguest
 
 {{-- @foreach ($books as $book)

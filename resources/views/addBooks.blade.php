@@ -21,7 +21,8 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-sm-10">
-                <div class="mb-3 ml-5">
+            <a href="/books"><i style="color:#ADD8E6;" class="pt-2 fa-solid fa-circle-arrow-left fa-2x"></i></a>
+                <div class="mb-3 ml-5 mt-3">
                     <label for="title" class="form-label">Book title</label>
                     <input type="text" class="form-control" id="title" placeholder="Enter book title" name="title">
                 </div>
@@ -32,23 +33,23 @@
                 <div class="mb-3 ml-5">
                     <label for="publisher" class="form-label">Book publisher</label><br>
                     {{-- <input type="text" class="form-control" id="publisher" placeholder="Enter book publisher" name="publisher"> --}}
-                    <select class=""name="publisher">
+                    <select class="" name="publisher_id">
                         @foreach ($publishers as $publisher)
-                            <option value="{{$publisher->publisherName}}">{{$publisher->publisherName}}</option>
+                        <option value="{{$publisher->id}}">{{$publisher->publisherName}}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
         </div>
-        
+
         <div class="row mt-3">
             <div class="col-sm-10">
                 <div class="mb-3 ml-5">
                     <label for="category" class="form-label">Book category</label><br>
                     {{-- <input type="text" class="form-control" id="publisher" placeholder="Enter book publisher" name="publisher"> --}}
-                    <select class=""name="category">
+                    <select class="" name="category_id">
                         @foreach ($categories as $category)
-                            <option value="{{$category->categoryName}}">{{$category->categoryName}}</option>
+                        <option value="{{$category->id}}">{{$category->categoryName}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -60,9 +61,9 @@
                 <div class="mb-3 ml-5">
                     <label for="author" class="form-label">Book author</label><br>
                     {{-- <input type="text" class="form-control" id="author" placeholder="Enter book author" name="author"> --}}
-                    <select class="" name="author">
+                    <select class="" name="author_id">
                         @foreach ($authors as $author)
-                            <option value="{{$author->name}}">{{$author->name}}</option>
+                        <option value="{{$author->id}}">{{$author->name}}</option>
                         @endforeach
                     </select>
                 </div>

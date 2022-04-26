@@ -18,6 +18,7 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-sm-10">
+            <a href="/publishers"><i style="color:#ADD8E6;" class="pt-2 fa-solid fa-circle-arrow-left fa-2x"></i></a>
                 <div class="mb-3 ml-5 mt-3">
                     <label for="publisherName" class="form-label">Book publisher</label>
                     <input type="text" class="form-control" id="title" placeholder="Enter a book publisher" name="publisherName">

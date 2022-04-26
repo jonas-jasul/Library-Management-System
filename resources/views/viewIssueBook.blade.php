@@ -21,52 +21,61 @@
         </div>
     </div>
     <div class="row">
-        <table class="table table-light table-striped table-bordered">
-            <thead>
-                <tr class="table-info">
-                    <th scope="col">#</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Book Title</th>
-                    <th scope="col">User Phone Number</th>
-                    <th scope="col">User Email</th>
-                    <th scope="col">Issue Date</th>
-                    <th scope="col">Returning Date</th>
-                    <th scope="col">Status</th>
-                    @if(Auth::user()->role_id==3)
-                    <th scope="col">Action</th>
-                    @endif
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($books as $book)
-                <tr>
-                    <th scope="row">{{$book->id}}</th>
-                    <td>{{$book->user->name}}</td>
-                    <td>{{$book->book->title}}</td>
-                    <td>{{$book->user->member_phone_num}}</td>
-                    <td>{{$book->user->email}}</td>
-                    <td>{{$book->issue_date}}</td>
-                    <td>{{$book->return_date}}</td>
-                    <td>{{$book->status}}</td>
-                    {{-- <td>{{str_repeat("*", $book->rating)}}</td> --}}
-                    @if(Auth::user()->role_id==2)
-                    <td>
-                        <a class="no-underline" href="/books/edit/{{ $book->id }}">edit</a>
-                        /
-                        <a class="no-underline" href="/books/remove/ask/{{ $book->id }}">remove</a>
-                    </td>
-                    @endif
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div style="overflow:auto">
+            <table class="table table-light table-striped table-bordered">
+                <thead>
+                    <tr class="table-info">
+                        <th scope="col">#</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Book title</th>
+                        <th scope="col">User phone number</th>
+                        <th scope="col">User email</th>
+                        <th scope="col">Issue date</th>
+                        <th scope="col">Return by date</th>
+                        <th scope="col">Status</th>
+                        @if(Auth::user()->role_id==3)
+                        <th scope="col">Action</th>
+                        @endif
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($books as $book)
+                    <tr>
+                        <th scope="row">{{$book->id}}</th>
+                        <td>{{$book->user->name ?? "None"}}</td>
+                        <td>{{$book->book->title}}</td>
+                        <td>{{$book->user->member_phone_num ?? "-"}}</td>
+                        <td>{{$book->user->email ?? "-"}}</td>
+                        <td class="text-nowrap">{{$book->issue_date}}</td>
+                        <td class="text-nowrap">{{$book->return_date}}</td>
+                        <td>
+                            @if ($book->status == "Y")
+                            <span class="badge badge-pill badge-success">Returned</span>
+                            @elseif($book->status=="N")
+                            <span class="badge badge-pill badge-danger">Issued</span>
+                            @endif
+                        </td>
+                        {{-- <td>{{str_repeat("*", $book->rating)}}</td> --}}
+                        @if(Auth::user()->role_id==3)
+                        <td class="text-nowrap">
+                            <a class="no-underline btn btn-primary btn-sm" href="/issueBook/edit/{{ $book->id }}">edit</a>
+                            /
+                            <a class="no-underline btn btn-danger btn-sm" href="/books/remove/ask/{{ $book->id }}">remove</a>
+                        </td>
+                        @endif
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endauth
 
 @guest
-<h1 class="mt-3 ml-3">You are logged out. Please log in.</h1>
-
+<div class="pt-5 d-flex justify-content-center align-items-center">
+<h1>You are logged out. Please log in.</h1>
+</div>
 @endguest
 
 {{-- @foreach ($books as $book)

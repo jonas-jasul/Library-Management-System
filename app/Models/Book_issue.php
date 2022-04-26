@@ -13,11 +13,11 @@ class Book_issue extends Model
     
 
     public function book():BelongsTo {
-        return $this->belongsTo(Book::class, 'id');
+        return $this->belongsTo(Book::class, 'book_id');
     }
 
     public function user():BelongsTo {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     protected $fillable = [
@@ -25,6 +25,8 @@ class Book_issue extends Model
         "book_id",
         "issue_date",
         "return_date",
+        "status",
         "return_day"
+        
     ];
 }

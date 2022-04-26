@@ -2182,18 +2182,19 @@ button {
 }
 .card-body-dash{
   padding: 60px 40px;
-  background: #0083a0;
+  background: #ffe2ac;
+  outline: 2px solid black;
 }
 
 .card-body-dash .card-text{
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 70px;
   line-height: 50px;
   font-weight: 20;
   margin: 0 0 10px;
 }
 .card-body-dash .card-title{
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 /* h1,
 h2,
@@ -2229,5 +2230,42 @@ h5 {
 }
 
 .nav-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: #ffe2ac;
+  outline: 1px solid black;
+  color:black;
 } 
+
+body {
+  background: url('/images/background.jpg');
+}
+
+#wrapper {
+   width: 80%;
+   padding-bottom: 25em;
+   padding-left: 2em;
+   padding-right: 2em;
+   margin: 0 auto;
+   background-color: #DCBE87;
+}
+
+.table-bordered td, .table-bordered th{
+  border:1px solid black;
+}
+
+table.table-bordered > thead > tr > th{
+  border:1px solid black;
+}
+
+#filter_btn {
+  background-color: #2563eb !important;
+}
+
+#filter_btn:hover {
+  border: 1px solid white !important;
+}
+
+.fa-circle-arrow-left {
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+
+}

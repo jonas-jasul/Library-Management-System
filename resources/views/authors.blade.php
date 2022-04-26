@@ -15,44 +15,47 @@
 </div>
 
 <div class="container">
-<div class="row">
+    <div class="row">
         <div class="col-12">
             <h3 class="mt-0 mb-3 text-center head-title">Authors</h3>
         </div>
     </div>
-    <table class="table table-light table-striped table-bordered">
-        <thead>
-            <tr class="table-info">
-                <th scope="col">#</th>
-                <th scope="col">Author name</th>
-                <th scope="col">Author country of origin</th>
-                <th scope="col">Author birthdate</th>                
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($authors as $author)
-            <tr>
-                <th scope="row">{{$author->id}}</th>
-                <td>{{$author->name}}</td>
-                <td>{{$author->birthCountry}}</td>
-                <td>{{$author->dateOfBirth}}</td>
-                {{-- <td>{{str_repeat("*", $book->rating)}}</td> --}}
-                <td>
-                    <a class="no-underline" href="/authors/edit/{{ $author->id }}">edit</a>
-                    /
-                    <a class="no-underline" href="/authors/remove/ask/{{ $author->id }}">remove</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div style="overflow:auto">
+        <table class="table table-light table-striped table-bordered">
+            <thead>
+                <tr class="table-info">
+                    <th scope="col">#</th>
+                    <th scope="col">Author name</th>
+                    <th scope="col">Author country of origin</th>
+                    <th scope="col">Author birthdate</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($authors as $author)
+                <tr>
+                    <th scope="row">{{$author->id}}</th>
+                    <td>{{$author->name}}</td>
+                    <td>{{$author->birthCountry}}</td>
+                    <td class="text-nowrap">{{$author->dateOfBirth}}</td>
+                    {{-- <td>{{str_repeat("*", $book->rating)}}</td> --}}
+                    <td class="text-nowrap">
+                        <a class="no-underline btn btn-primary btn-sm" href="/authors/edit/{{ $author->id }}">edit</a>
+                        /
+                        <a class="no-underline btn btn-danger btn-sm" href="/authors/remove/ask/{{ $author->id }}">remove</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 @endauth
 
 @guest
-<h1 class="mt-3 ml-3">You are logged out. Please log in.</h1>
-
+<div class="pt-5 d-flex justify-content-center align-items-center">
+<h1>You are logged out. Please log in.</h1>
+</div>
 @endguest
 
 {{-- @foreach ($books as $book)

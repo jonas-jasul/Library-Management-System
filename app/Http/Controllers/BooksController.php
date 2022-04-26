@@ -39,18 +39,19 @@ class BooksController extends Controller
         //dd($request);
         $validated = $request->validate([
             "title" => "required|max:255",
-            "publisher" => "required|max:255",
-            "category" => "required",
-            "author" => "required|max:255",
+            "publisher_id" => "required|max:255",
+            "category_id" => "required",
+            "author_id" => "required|max:255",
             "status" => "Y"
         ]);
 
         Book::create([
             "title" => request("title"),
-            "publisher" => request("publisher"),
-            "category" => request("category"),
-            "status" => "Y",
-            "author" => request("author")
+            "publisher_id" => request("publisher_id"),
+            "category_id" => request("category_id"),
+            "author_id" => request("author_id"),
+            "status" => "Y"
+            
 
         ]);
         return redirect("/books");
@@ -59,26 +60,29 @@ class BooksController extends Controller
     public function editForm($id)
     {
         $book = Book::where("id", $id)->firstOrFail();
-        return view("editBooks", compact("book"));
+        $publishers=Publisher::all();
+        $categories=Category::all();
+        $authors=Author::all();
+        return view("editBooks", compact("book", "publishers", "categories", "authors"));
     }
 
     public function edit(Request $request, $id)
     {
         $validated = $request->validate([
             'title' => "required|max:255",
-            'publisher' => "required|max:255",
-            'category' => "required",
-            'author' => "required|max:255"
+            'publisher_id' => "required|max:255",
+            'category_id' => "required",
+            'author_id' => "required|max:255"
 
         ]);
 
         $book = Book::where("id", $id)->firstOrFail();
 
         $book->title = request("title");
-        $book->publisher = request("publisher");
-        $book->category = request("category");
-        $book->author = request("author");
-        $book->status = request("status");
+        $book->publisher_id = request("publisher_id");
+        $book->category_id = request("category_id");
+        $book->author_id = request("author_id");
+        // $book->status = request("status");
 
         $book->save();
 

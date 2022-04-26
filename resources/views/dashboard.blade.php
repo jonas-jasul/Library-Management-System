@@ -11,16 +11,8 @@
                 <div class="col-md-3">
                     <div class="card card-dash">
                         <div class="card-body-dash text-center">
-                            <h5 class="card-title">Total Authors:</h5>
-                            <p class="card-text pt-2">{{ $authors }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card card-dash">
-                        <div class="card-body-dash text-center">
                             <h5 class="card-title">Total Publishers:</h5>
-                            <p class="card-text pt-2">{{ $publishers }}</p>
+                            <p class="card-text pt-2">{{ $publishers}}</p>
                         </div>
                     </div>
                 </div>
@@ -35,28 +27,36 @@
                 <div class="col-md-3">
                     <div class="card card-dash">
                         <div class="card-body-dash text-center">
+                            <h5 class="card-title">Total Authors::</h5>
+                            <p class="card-text pt-2">{{ $authors }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-dash">
+                        <div class="card-body-dash text-center">
                             <h5 class="card-title">Total Books:</h5>
                             <p class="card-text pt-2">{{ $books }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 pt-3">
+                <div class="col-md-3 pt-3">
                     <div class="card card-dash">
                         <div class="card-body-dash text-center">
-                            <p class="card-text">{{ $users }}</p>
-                            <h5 class="card-title mb-0">Total Users:</h5>
+                        <h5 class="card-title">Total Users:</h5>
+                            <p class="card-text pt-2">{{ $users }}</p>                            
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-md-3">
+                <div class="col-md-3 pt-3">
                     <div class="card card-dash">
                         <div class="card-body-dash text-center">
-                            <p class="card-text">{{ $issued_books }}</p>
-                <h5 class="card-title mb-0">Book Issued</h5>
+                         <h5 class="card-title">Total Books Issued:</h5>
+                            <p class="card-text pt-2">{{ $issued_books }}</p>                           
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div> --}}
-        </div>
         </div>
         </div>
 

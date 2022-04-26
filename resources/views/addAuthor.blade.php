@@ -20,7 +20,8 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-sm-10">
-                <div class="mb-3 ml-5">
+            <a href="/authors"><i style="color:#ADD8E6;" class="pt-2 fa-solid fa-circle-arrow-left fa-2x"></i></a>
+                <div class="mb-3 ml-5 mt-3">
                     <label for="name" class="form-label">Author name</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter author name" name="name">
                 </div>

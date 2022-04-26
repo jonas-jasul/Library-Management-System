@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string("title");            
             // $table->integer("integer_column");
             // $table->text("big_text")->nullable();
-            $table->string("publisher")->onDelete('cascade');
+            $table->foreignId("publisher_id")->constrained()->onDelete('cascade');
             //naudoti author_id (int) jei kuriamas separate table
             //$table->integer("author_id");
-            $table->string("category");
-            $table->string("author")->onDelete('cascade');
+            $table->foreignId("category_id")->constrained();
+            $table->foreignId("author_id")->constrained()->onDelete('cascade');
             $table->string('status')->default('Y');
             //$table->dateTime("publ_date");
             $table->timestamps();

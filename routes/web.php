@@ -57,6 +57,8 @@ Route::post("/books/add", [BooksController::class, "store"]);
 Route::get("/issueBook/", [BookIssueController::class, "index"]);
 Route::get("/issueBook/add", [BookIssueController::class, "addIssue"]);
 Route::post("/issueBook/add", [BookIssueController::class, "store"]);
+Route::get("/issueBook/edit/{id}", [BookIssueController::class, "editBookIssueForm"]);
+Route::post("/issueBook/edit/{id}", [BookIssueController::class, "returnBookIssue"])->name("returnBookIssue");
 
 Route::get("/publishers", [PublishersController::class, "index"]);
 Route::post("/addAuthor", [AuthorsController::class, "storeAuthor"]);
