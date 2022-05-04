@@ -49,7 +49,7 @@ class BookIssueController extends Controller
 
     public function index() {
         // $issues=Book_issue::all();
-        $books=Book_issue::all();       
+        $books=Book_issue::sortable()->paginate();       
         return view("viewIssueBook", compact("books"));
     }
 

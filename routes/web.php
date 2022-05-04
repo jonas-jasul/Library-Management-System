@@ -10,6 +10,7 @@ use App\Http\Controllers\BookIssueController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PublishersController;
+use App\Models\Book_issue;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,11 @@ Route::get("/authors/add", function() {
 
 Route::get("/issueBook/add", function() {
     return view("issueBook");
+});
+
+Route::get("book_issues", function(){
+    $issues= Book_issue::sortable();
+    return view('viewIssueBook', compact("issues"));
 });
 
 Route::get("/books", [BooksController::class, "index"]);

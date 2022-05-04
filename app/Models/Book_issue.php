@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Kyslik\ColumnSortable\Sortable;
 
 class Book_issue extends Model
 {
     use HasFactory;
-
+    use Sortable;
     
 
     public function book():BelongsTo {
@@ -29,4 +30,6 @@ class Book_issue extends Model
         "return_day"
         
     ];
+
+    public $sortable=["issue_date", "return_date", "status"];
 }

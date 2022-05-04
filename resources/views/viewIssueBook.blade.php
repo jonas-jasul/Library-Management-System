@@ -38,9 +38,9 @@
                         <th scope="col">Book title</th>
                         <th scope="col">User phone number</th>
                         <th scope="col">User email</th>
-                        <th scope="col">Issue date</th>
-                        <th scope="col">Return by date</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">@sortablelink('issue_date', "Date")</th>
+                        <th scope="col">@sortablelink('return_date', "Return by date")</th>
+                        <th scope="col">@sortablelink('status')</th>
                         @if(Auth::user()->role_id==3)
                         <th scope="col">Action</th>
                         @endif
