@@ -2269,3 +2269,11 @@ table.table-bordered > thead > tr > th{
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 
 }
+
+.fa-arrows-rotate:hover {
+  color:white;
+}
+
+.refresh_btn:hover {
+  color:white;
+}

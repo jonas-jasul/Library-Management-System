@@ -11,6 +11,14 @@
         <div class="col-12">
             <a href="/issueBook/add" class="float-right mt-3 pt-2 pb-2 pl-2 pr-2 add_btn" role="button">Issue Book</a>
         </div>
+        <form action="/issueBook" method="POST" role="searchIssue">
+            {{ csrf_field() }}
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchIssue" name="searchIssue" placeholder="Enter search query">
+                <button type="submit" id="filter_btn" class="btn btn-primary ml-2">Search</button>
+                <button class="ml-3 pl-2 pr-2" style="background-color:green; color:white;"><a class="refresh_btn" href="/issueBook"><i class="fa-solid fa-arrows-rotate"></i></a></button>
+            </div>
+        </form>
     </div>
 </div>
 @endif

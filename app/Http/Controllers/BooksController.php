@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
-
+use DB;
 class BooksController extends Controller
 {
 
@@ -105,10 +105,27 @@ class BooksController extends Controller
         return redirect("/books");
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        $results = Book::where('title', 'LIKE', '%' . $_GET['query'] . '%')->get();
+        $keyword = $request->input('search');
+        $books = Book::query();
 
-        return dd($_GET['query']);
+        if ($request) {
+            $books = $books->where('title', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('publisher', function($query) use($keyword) {
+                    $query->where('publisherName', 'LIKE', '%' . $keyword . '%');
+                })
+                ->orWhereHas('category', function($query) use($keyword) {
+                    $query->where('categoryName', 'LIKE', '%' . $keyword . '%');
+                })
+                ->orWhereHas('author', function($query) use($keyword) {
+                    $query->where('name', 'LIKE', '%' . $keyword . '%');
+                });
+        }
+        
+        $books = $books->get();
+
+    return view("books", compact("books"));
     }
+
 }

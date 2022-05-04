@@ -52,4 +52,30 @@ class BookIssueController extends Controller
         $books=Book_issue::all();       
         return view("viewIssueBook", compact("books"));
     }
+
+    public function searchIssue(Request $request)
+    {
+        $keyword = $request->input('searchIssue');
+        $books = Book_issue::query();
+
+        if ($request) {
+            $books = $books->where('id', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('user', function($query) use($keyword) {
+                    $query->where('name', 'LIKE', '%' . $keyword . '%');
+                })
+                ->orWhereHas('book', function($query) use($keyword) {
+                    $query->where('title', 'LIKE', '%' . $keyword . '%');
+                })
+                ->orWhereHas('user', function($query) use($keyword) {
+                    $query->where('member_phone_num', 'LIKE', '%' . $keyword . '%');
+                })
+                ->orWhereHas('user', function($query) use($keyword) {
+                    $query->where('email', 'LIKE', '%' . $keyword . '%');
+                });
+        }
+        
+        $books = $books->get();
+
+    return view("viewIssueBook", compact("books"));
+    }
 }

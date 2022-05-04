@@ -59,6 +59,7 @@ Route::get("/issueBook/add", [BookIssueController::class, "addIssue"]);
 Route::post("/issueBook/add", [BookIssueController::class, "store"]);
 Route::get("/issueBook/edit/{id}", [BookIssueController::class, "editBookIssueForm"]);
 Route::post("/issueBook/edit/{id}", [BookIssueController::class, "returnBookIssue"])->name("returnBookIssue");
+Route::post("/issueBook", [BookIssueController::class, "searchIssue"]);
 
 Route::get("/publishers", [PublishersController::class, "index"]);
 Route::post("/addAuthor", [AuthorsController::class, "storeAuthor"]);
@@ -69,6 +70,7 @@ Route::get("/books/edit/{id}", [BooksController::class, "editForm"]);
 Route::post("/books/edit/{id}", [BooksController::class, "edit"]);
 Route::get("/books/remove/ask/{id}", [BooksController::class, "removeForm"]);
 Route::get("/books/remove/{id}", [BooksController::class, "remove"]);
+Route::post("/books",[BooksController::class, "search"]);
 
 Route::get("/publishers/edit/{id}", [PublishersController::class, "editForm"]);
 Route::post("/publishers/edit/{id}", [PublishersController::class, "edit"]);

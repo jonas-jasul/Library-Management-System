@@ -16,11 +16,12 @@
 @endif
 <div class="container">
     <div class="row">
-        <form action="/search" method="POST" role="search">
+        <form action="/books" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group">
-                <input type="text" class="form-control" name="q" placeholder="Enter search query">
-                <button type="submit" id="filter_btn" class="btn btn-primary ml-2">Filter</button>
+                <input type="text" class="form-control" id="search" name="search" placeholder="Enter search query">
+                <button type="submit" id="filter_btn" class="btn btn-primary ml-2">Search</button>
+                <button class="ml-3 pl-2 pr-2" style="background-color:green; color:white;"><a class="refresh_btn" href="/books"><i class="fa-solid fa-arrows-rotate"></i></a></button>
             </div>
         </form>
         <div class="col-12">
@@ -77,5 +78,6 @@
 <p>Title: {{$book->title}}</p>
 
 @endforeach --}}
+
 
 @endsection
