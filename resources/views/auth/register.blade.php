@@ -11,12 +11,12 @@
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input placeholder="Enter your full name" id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input placeholder="Enter your email address" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
              <div class="mt-4">
@@ -29,12 +29,12 @@
 
              <div class="mt-4" x-show="role_id == 2">
                 <x-jet-label for="member_school" value="{{ __('School') }}" />
-                <x-jet-input id="member_school" class="block mt-1 w-full" type="text" name="member_school" :value="old('member_school')" />
+                <x-jet-input placeholder="Enter your school" id="member_school" class="block mt-1 w-full" type="text" name="member_school" :value="old('member_school')" />
             </div>
 
             <div class="mt-4" x-show="role_id == 2">
                 <x-jet-label for="member_phone_num" value="{{ __('Phone Number') }}" />
-                <x-jet-input id="member_phone_num" class="block mt-1 w-full" type="text" name="member_phone_num" :value="old('member_phone_num')" />
+                <x-jet-input placeholder="Enter your phone number" id="member_phone_num" class="block mt-1 w-full" type="text" name="member_phone_num" :value="old('member_phone_num')" />
             </div>
 
             <div class="mt-4" x-show="role_id == 3">
@@ -45,12 +45,12 @@
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input placeholder="Enter a password" id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-input placeholder="Repeat your password" id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

@@ -9,7 +9,7 @@ class AuthorsController extends Controller
 {
     public function storeAuthor (Request $request) {
         $validated=$request->validate([
-            "name" =>"required",
+            "name" =>"required|regex:/^[\pL\s\-]+$/u",
             "birthCountry" => "required",
             "dateOfBirth" => "required"
 
@@ -35,7 +35,7 @@ class AuthorsController extends Controller
 
     public function edit(Request $request, $id) {
         $validated = $request->validate([
-            'name' => "required|max:255",
+            'name' => "required|max:255|regex:/^[\pL\s\-]+$/u",
             'birthCountry'=>"required|max:255",
             'dateOfBirth'=>"required|max:255"
 

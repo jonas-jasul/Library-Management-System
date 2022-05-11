@@ -8,7 +8,8 @@ class CategoriesController extends Controller
 {
     public function storeCategory (Request $request) {
         $validated=$request->validate([
-            "categoryName" =>"required"
+            "categoryName" =>"required|regex:/^[\pL\s\-]+$/u",
+            
         ]);
 
         Category::create([
@@ -29,7 +30,7 @@ class CategoriesController extends Controller
 
     public function edit(Request $request, $id) {
         $validated = $request->validate([            
-            'categoryName'=>"required|max:255"
+            'categoryName'=>"required|max:255|regex:/^[\pL\s\-]+$/u"
 
         ]);
 
