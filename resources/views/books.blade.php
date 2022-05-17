@@ -34,10 +34,10 @@
             <thead>
                 <tr class="table-primary">
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Author</th>
+                    <th scope="col">@sortablelink("title")</th>
+                    <th scope="col">@sortablelink("publisher_id", "Publisher")</th>
+                    <th scope="col">@sortablelink("category_id", "Category")</th>
+                    <th scope="col">@sortablelink("author_id", "Author")</th>
                     @if(Auth::user()->role_id==3)
                     <th scope="col">Action</th>
                     @endif

@@ -25,9 +25,9 @@
             <thead>
                 <tr class="table-info">
                     <th scope="col">#</th>
-                    <th scope="col">Author name</th>
-                    <th scope="col">Author country of origin</th>
-                    <th scope="col">Author birthdate</th>
+                    <th scope="col">@sortablelink("name")</th>
+                    <th scope="col">@sortablelink("birthCountry","Author country of origin")</th>
+                    <th scope="col">@sortablelink("dateOfBirth", "Author birthdate")</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>

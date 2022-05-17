@@ -10,8 +10,9 @@ use App\Http\Controllers\BookIssueController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PublishersController;
+use App\Mail\WelcomeRegistered;
 use App\Models\Book_issue;
-
+use App\Notifications\welcomeEmailNotification;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,11 @@ use App\Models\Book_issue;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('test', function() {
+    return view('emailRegistered');
 });
 
 Route::get('/addCategory', function () {
@@ -66,6 +72,8 @@ Route::post("/issueBook/add", [BookIssueController::class, "store"]);
 Route::get("/issueBook/edit/{id}", [BookIssueController::class, "editBookIssueForm"]);
 Route::post("/issueBook/edit/{id}", [BookIssueController::class, "returnBookIssue"])->name("returnBookIssue");
 Route::post("/issueBook", [BookIssueController::class, "searchIssue"]);
+Route::get("/issueBook/remove/ask/{id}", [BookIssueController::class, "removeForm"]);
+Route::get("/issueBook/remove/{id}", [BookIssueController::class, "remove"]);
 
 Route::get("/publishers", [PublishersController::class, "index"]);
 Route::post("/addAuthor", [AuthorsController::class, "storeAuthor"]);

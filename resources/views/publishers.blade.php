@@ -24,7 +24,7 @@
         <thead>
             <tr class="table-danger">
                 <th scope="col">#</th>
-                <th scope="col">Publisher</th>
+                <th scope="col">@sortablelink("publisherName", "Publisher")</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>

@@ -18,7 +18,8 @@ class PublishersController extends Controller
     }
 
     public function index() {
-        $publishers=Publisher::all();
+        // $publishers=Publisher::all();
+        $publishers=Publisher::sortable()->paginate();
         return view("publishers", compact("publishers"));
     }
 

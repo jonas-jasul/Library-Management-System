@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Kyslik\ColumnSortable\Sortable;
 
 class Book extends Model
 {
     use HasFactory;
+    use Sortable;
     protected $fillable = [
         "title",
         "publisher_id",
@@ -16,6 +18,8 @@ class Book extends Model
         "author_id",
         "status"
     ];
+
+    public $sortable=["title", "publisher_id", "category_id", "author_id", "status"];
 
     public function user():BelongsTo
     {

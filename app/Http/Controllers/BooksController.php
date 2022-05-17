@@ -20,7 +20,8 @@ class BooksController extends Controller
     // }
     public function index()
     {
-        $books = Book::all();
+        // $books = Book::all();
+        $books=Book::sortable()->paginate();
         return view("books", compact("books"));
     }
 

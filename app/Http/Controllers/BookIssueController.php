@@ -47,6 +47,22 @@ class BookIssueController extends Controller
         return redirect("/issueBook");
     }
 
+    public function removeForm($id)
+    {
+        $issue = Book_issue::where("id", $id)->firstOrFail();
+
+        return view("removeIssueBook", compact("issue"));
+    }
+
+    public function remove($id)
+    {
+        $issue = Book_issue::where("id", $id)->firstOrFail();
+
+        $issue->delete();
+
+        return redirect("/issueBook");
+    }
+
     public function index() {
         // $issues=Book_issue::all();
         $books=Book_issue::sortable()->paginate();       

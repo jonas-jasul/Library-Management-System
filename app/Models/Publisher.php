@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Publisher extends Model
 {
     use HasFactory;
+    use Sortable;
     protected $fillable = [
         "publisherName"
     ];
+
+    public $sortable = ["publisherName"];
 }

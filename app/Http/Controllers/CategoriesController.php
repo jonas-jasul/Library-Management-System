@@ -19,7 +19,8 @@ class CategoriesController extends Controller
     }
 
     public function index() {
-        $categories=Category::all();
+        // $categories=Category::all();
+        $categories=Category::sortable()->paginate();
         return view("categories", compact("categories"));
     }
 

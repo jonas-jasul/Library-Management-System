@@ -6,7 +6,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Illuminate\Http\Request;
 use Laravel\Jetstream\Jetstream;
+use App\Mail\WelcomeRegistered;
+use Mail;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -29,7 +32,7 @@ class CreateNewUser implements CreatesNewUsers
 
         $role_id = (User::all()->count() == 0) ? '3' : '2';
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
@@ -39,5 +42,18 @@ class CreateNewUser implements CreatesNewUsers
             'qualification'=> $input['qualification'] ?? null,
 
         ]);
+
+        Mail::to($user)->send(new WelcomeRegistered($user));
+        return $user;
+        // return User::create([
+        //     'name' => $input['name'],
+        //     'email' => $input['email'],
+        //     'password' => Hash::make($input['password']),
+        //     'role_id' => $role_id,
+        //     'member_school'=> $input['member_school'] ?? null,
+        //     'member_phone_num'=> $input['member_phone_num'] ?? null,
+        //     'qualification'=> $input['qualification'] ?? null,
+
+        // ]);
     }
 }

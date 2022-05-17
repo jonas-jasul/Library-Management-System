@@ -31,5 +31,5 @@ class Book_issue extends Model
         
     ];
 
-    public $sortable=["issue_date", "return_date", "status"];
+    public $sortable=["user_id", "book_id", "issue_date", "return_date", "status"];
 }

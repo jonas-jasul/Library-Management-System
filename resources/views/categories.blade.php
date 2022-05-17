@@ -24,7 +24,7 @@
         <thead>
             <tr class="table-secondary">
                 <th scope="col">#</th>
-                <th scope="col">Category</th>
+                <th scope="col">@sortablelink("categoryName", "Category")</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>

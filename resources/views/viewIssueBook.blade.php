@@ -34,8 +34,8 @@
                 <thead>
                     <tr class="table-info">
                         <th scope="col">#</th>
-                        <th scope="col">User</th>
-                        <th scope="col">Book title</th>
+                        <th scope="col">@sortablelink('user_id', "User")</th>
+                        <th scope="col">@sortablelink('book_id', "Book title")</th>
                         <th scope="col">User phone number</th>
                         <th scope="col">User email</th>
                         <th scope="col">@sortablelink('issue_date', "Date")</th>
@@ -68,7 +68,7 @@
                         <td class="text-nowrap">
                             <a class="no-underline btn btn-primary btn-sm" href="/issueBook/edit/{{ $book->id }}">edit</a>
                             /
-                            <a class="no-underline btn btn-danger btn-sm" href="/books/remove/ask/{{ $book->id }}">remove</a>
+                            <a class="no-underline btn btn-danger btn-sm" href="/issueBook/remove/ask/{{ $book->id }}">remove</a>
                         </td>
                         @endif
                     </tr>
