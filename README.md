@@ -1,6 +1,6 @@
-<p align="center">A Library Management System made with Laravel</p>
+<h1><p align="center">A Library Management System made with Laravel</p></h1>
 
-Features:
+<b>Features:</b>
     <p>1.  Admin and User registration and login;</p>
     <p>2.  CRUD of book author, book category, genre, publisher;</p>
     <p>3.  Ability to issue books;</p>
